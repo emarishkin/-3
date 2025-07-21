@@ -1,0 +1,48 @@
+/* Основной контейнер карточек */
+.app-sider-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрируем по горизонтали */
+  gap: 16px;
+  width: 100%;
+  margin-top: 45px;
+}
+
+/* Стили для карточек */
+.sider-card {
+  margin-bottom: 16px;
+  width: 70%; /* Фиксированная ширина или можно использовать max-width */
+  margin-left: auto;
+  margin-right: auto; /* Автоматические отступы по бокам для центрирования */
+}
+
+.sider-card .ant-card-meta {
+  padding: 16px;
+}
+
+.sider-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  text-align: center; /* Центрируем текст заголовка */
+}
+
+.sider-card-description {
+  margin-top: 8px;
+  color: rgba(0, 0, 0, 0.65);
+  text-align: center; /* Центрируем текст описания */
+}
+
+.sider-calc-button {
+  margin: 16px auto 0; /* Верхний отступ и автоматические боковые для центрирования */
+  display: block; /* Чтобы сработал margin auto */
+  width: 80%; /* Уменьшаем ширину кнопки */
+}
+
+/* Убираем лишние стили */
+.sider-card-header {
+  display: flex;
+  justify-content: center; /* Центрируем аватар и заголовок */
+  align-items: center;
+  margin-bottom: 12px;
+}
