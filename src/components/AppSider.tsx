@@ -104,7 +104,7 @@ export const AppSider: FC = () => {
     <Layout.Sider width="25%" style={siderStyle}>
       {assets.map(asset => (
         <Card key={asset.id} style={cardStyle} bodyStyle={{ padding: '12px' }}>
-          <div style={{fontSize:20}}>
+          <div style={statisticStyle}>
             <Statistic
               title={capotalaze(asset.id)}
               value={asset.totalProfit}

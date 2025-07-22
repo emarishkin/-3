@@ -46,3 +46,11 @@ export interface CryptoDataResponse {
   cryptoData: CryptoData;
   cryptoAssets: CryptoAsset[];
 }
+
+ export interface NewAsset extends CryptoAsset {
+  grow: boolean;
+  currentPrice: number;
+  growPercent: string;
+  totalAmount: number;
+  totalProfit: number;
+}
