@@ -1,18 +1,17 @@
-import { Cards } from "./data/CalcCard"
+import { cryptoAssets, cryptoData } from "./data/data"
 
-
-export const FetchSiderApi = () => {
+export const fetchCryptoApi = () => {
     return new Promise((resolve)=>{
         setTimeout(()=>{
-          resolve(Cards)   
-        },2000)
-    })    
+           resolve(cryptoData)
+        },1000)
+    })
 }
 
-export const FetchFullApi = () => {
+export const fetchAssetApi = () => {
     return new Promise((resolve)=>{
         setTimeout(()=>{
-          resolve(Cards)   
+           resolve(cryptoAssets)
         },1000)
-    })    
+    })
 }

@@ -7,7 +7,7 @@ import { AppSider } from './components/AppSider';
 
 const layoutStyle: React.CSSProperties = {
   minHeight: '100vh',
-  display: 'flex', // Включаем flex-распределение
+  display: 'flex',
 };
 
 const innerLayoutStyle: React.CSSProperties = {
