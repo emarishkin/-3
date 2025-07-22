@@ -2,7 +2,9 @@ import { Avatar, Button, Card, Divider, Flex, Skeleton } from "antd";
 import { useState, type FC } from "react";
 import type { ICalcCard } from "../types/ICalcCard";
 import '../styles/SiderCards.css'
+import { ModalMain } from "./Modals/Modal";
 import { ModalCalcIMT } from "./Modals/ModalCalcIMT";
+import { MainCalculate } from "./Modals/FullCalc";
 
 interface SiderCardsProps {
   cards: ICalcCard[];
@@ -13,9 +15,11 @@ interface SiderCardsProps {
 export const SiderCard: FC<SiderCardsProps> = ({ cards, ClickCalcBTN,loading}) => {
   
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-   
+  const [currentCalc,setCurrentCalc] = useState<string | null>(null) 
+
  
   const handleButtonClick  = (path:string) => {
+    setCurrentCalc(path)
     ClickCalcBTN(path)
     setIsModalOpen(true)
   }
@@ -24,6 +28,14 @@ export const SiderCard: FC<SiderCardsProps> = ({ cards, ClickCalcBTN,loading}) =
   setIsModalOpen(false);
   };
    
+  const renderModalCalc = () => {
+    if(currentCalc === 'imt'){
+      return <ModalCalcIMT />
+    } else {
+      return <MainCalculate />
+    }
+  }
+
   if (loading) {
     return (
       <Flex gap="middle" align="start" vertical className="app-sider-content">
@@ -56,10 +68,13 @@ export const SiderCard: FC<SiderCardsProps> = ({ cards, ClickCalcBTN,loading}) =
         </Card>
       ))}
 
-      <ModalCalcIMT 
+      <ModalMain 
         open={isModalOpen}
         onCancel={handleModalClose}
-      />
+        title={currentCalc === 'imt' ? "Калькулятор ИМТ" : "Полный калькулятор"}
+      >
+        {renderModalCalc()}
+      </ModalMain>
 
     </Flex>
   );
